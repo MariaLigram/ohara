@@ -1,109 +1,5 @@
-/* Сброс стилей. Что не формировалось много зарпосов, весь код стиля в один файл */
-/* Указываем box sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Убираем внутренние отступы */
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-/* Убираем внешние отступы */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Выставляем основные настройки по-умолчанию для body */
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Упрощаем работу с изображениями */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
-  margin-top: 1em;
-}
-
-/* Наследуем шрифты для инпутов и кнопок */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-/* inter-regular - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  src: local(""), url("../fonts/inter-v2-latin-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/inter-v2-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* inter-500 - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  src: local(""), url("../fonts/inter-v2-latin-500.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/inter-v2-latin-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* inter-600 - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  src: local(""), url("../fonts/inter-v2-latin-600.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/inter-v2-latin-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+@import "reset.scss";
+@import "fonts.scss";
 
 html {
   box-sizing: border-box;
@@ -157,21 +53,16 @@ body {
     }
 
     .menu {
-      
       .menu__list {
         list-style-type: none;
-        
 
         .menu__item {
-          
-          margin-top: 50px;
+          margin-top: 45px;
           width: 140px;
-          
+
           .menu__link {
-            
             text-decoration: none;
             color: #83919e;
-            
 
             &:hover {
               color: #272829;
@@ -188,16 +79,83 @@ body {
         }
       }
     }
+
+    .squere {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      width: 192px;
+      height: 232px;
+      background: #f5f5fb;
+      border-radius: 12px;
+      position: relative;
+      .squere__img {
+        bottom: 175px;
+        position: absolute;
+      }
+      .squere__text {
+        position: absolute;
+        font-weight: 500;
+        color: #778dad;
+        text-align: center;
+      }
+
+      .squere__button {
+        bottom: 20px;
+        font-size: 16px;
+        color: #ffffff;
+        width: 144px;
+        height: 48px;
+        background: #5e81f4;
+        font-weight: 600;
+        border-radius: 10px;
+        border: 0;
+        position: absolute;
+      }
+    }
   }
 }
 
 .middle-column {
-  flex: 1;
+  flex: 2;
   order: 2;
-  width: 944px;
+
+  background: #e5e5e5;
   .middle-column__wrapper {
-    max-width: 871px;
+    max-width: 870px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+    .search-form {
+      margin-top: 50px;
+      left: 0;
+      width: 472px;
+      height: 55px;
+      background: #ffffff;
+      border-radius: 10px;
+      position: relative;
+
+      .search-form__item {
+        position: absolute;
+        padding: 15px;
+
+        .search-form__text {
+          font-weight: normal;
+          color: #ccd6e8;
+          text-align: center;
+        }
+        .search-form__icon {
+          float: left;
+          margin-right: 15px;
+        }
+      }
+    }
   }
 }
 
